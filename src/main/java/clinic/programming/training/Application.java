@@ -39,6 +39,6 @@ public class Application {
 		Application app = new Application();
 		app.greet();
 		int count = app.countWords("I have four words");
-		System.out.println("Word Count: %d ." + count);
+		System.out.format("Word Count: %d .", count);
 	}
 }
