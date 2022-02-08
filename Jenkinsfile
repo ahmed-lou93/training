@@ -18,6 +18,13 @@ pipeline{
                 )
             }
         }
+        stage("build") {
+            steps {
+                echo 'Clean Build'
+                bat 'mvn clean compile'
+            }
+        }
+        
     }
 	
 }
