@@ -9,8 +9,6 @@
 		<java.version>16</java.version>
 		<maven-compiler.version>3.9.0</maven-compiler.version>
 		<jacoco.version>0.8.7</jacoco.version>
-		<jacoco.it.execution.data.file>${project.build.directory}/coverage-reports/jacoco-it.exec</jacoco.it.execution.data.file>
-		<jacoco.ut.execution.data.file>${project.build.directory}/coverage-reports/jacoco-ut.exec</jacoco.ut.execution.data.file>
 	</properties>
 
 	<dependencies>
@@ -42,8 +40,30 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
-
+			
 			<plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+			<!--plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.7</version>
@@ -60,6 +80,13 @@
 						</goals>
 					</execution>
 					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
 						<id>post-unit-test</id>
 						<phase>test</phase>
 						<goals>
@@ -67,19 +94,19 @@
 							<goal>check</goal>
 						</goals>
 						<configuration>
+						 <dataFile>target/jacoco.exe</dataFile>
+						 <outputDirectory>target/my-reports</outputDirectory>
 							<rules>
 								<rule>
-									<element>BUNDLE</element>
+									<element>CLASS</element>
+									<excludes>
+										<exclude>*Test</exclude>
+									</excludes>
 									<limits>
-										<limit implementation="org.jacoco.report.check.Limit">
-											<counter>INSTRUCTION</counter>
-											<value>COVEREDRATIO</value>
-											<minimum>0.5</minimum>
-										</limit>
 										<limit>
-											<counter>COMPLEXITY</counter>
+											<counter>LINE</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.5</minimum>
+											<minimum>80%</minimum>
 										</limit>
 									</limits>
 								</rule>
@@ -87,7 +114,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>-->
 
 		</plugins>
 	</build>
