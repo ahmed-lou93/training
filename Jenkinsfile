@@ -31,6 +31,12 @@ pipeline{
             }
         }
         
+        stage('JaCoCo') {
+            steps {
+                echo 'Code Coverage'
+                jacoco()
+            }
+        }       
         
     }
 	
