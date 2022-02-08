@@ -24,6 +24,13 @@ pipeline{
                 bat 'mvn clean compile'
             }
         }
+        stage('Test') {
+            steps {
+                echo 'Testing'
+                bat 'mvn test'
+            }
+        }
+        
         
     }
 	
