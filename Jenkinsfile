@@ -6,7 +6,7 @@ pipeline{
             steps {
                 bat '''
                     echo "PATH = %PATH%"
-                    echo "M2_HOME = %M2_HOME%\bin"
+                    echo "M2_HOME = %M2_HOME%"
                 '''
             }
         }
