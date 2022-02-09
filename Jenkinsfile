@@ -36,8 +36,15 @@ pipeline{
                 echo 'Code Coverage'
                 jacoco()
             }
-        }       
-        
+        }
+        stage('Sonar') {
+            steps {
+                withSonarQubeEnv('sonar') { 
+                    bat ' mvn sonar:sonar'
+                }
+                
+            }
+        }      
     }
 	
 }
