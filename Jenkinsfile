@@ -21,7 +21,7 @@ pipeline{
         stage("build") {
             steps {
                 echo 'Clean Build'
-                bat 'mvn clean compile'
+                bat 'mvn clean validate compile'
             }
         }
         stage('Test') {
