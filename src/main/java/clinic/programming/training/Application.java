@@ -5,11 +5,14 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @since 02/02/2022
  * @author ahmed
  *
  */
+@Slf4j
 public class Application {
 
 	public int countWords(String words) {
@@ -21,12 +24,12 @@ public class Application {
 		List<String> greetings = new ArrayList<>();
 		greetings.add("Hello");
 		for (String greeting : greetings) {
-			System.out.println("Greeting: " + greeting);
+			log.warn("Greeting: " + greeting);
 		}
 	}
 
 	public Application() {
-		System.out.println("Inside Application");
+		log.info("Inside Application");
 	}
 
 	/**
