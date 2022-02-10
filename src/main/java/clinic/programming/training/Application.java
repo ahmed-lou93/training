@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -12,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author ahmed
  *
  */
-@Slf4j
+@NoArgsConstructor
 public class Application {
 
 	public int countWords(String words) {
@@ -24,12 +25,8 @@ public class Application {
 		List<String> greetings = new ArrayList<>();
 		greetings.add("Hello");
 		for (String greeting : greetings) {
-			log.warn("Greeting: " + greeting);
+			System.out.println("Greeting: " + greeting);
 		}
-	}
-
-	public Application() {
-		log.info("Inside Application");
 	}
 
 	/**
