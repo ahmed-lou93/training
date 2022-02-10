@@ -50,9 +50,19 @@ pipeline{
                 echo 'Packaging'
                 bat 'mvn package -DskipTests'
                 archiveArtifacts artifacts: '**', fingerprint: true
-
             }
         }
+        stage("Quality Gate") {
+            steps {
+                timeout(time: 1, unit: 'MINUTES') {
+                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
+                    // true = set pipeline to UNSTABLE, false = don't
+                    // Requires SonarQube Scanner for Jenkins 2.7+
+                    waitForQualityGate abortPipeline: false
+                }
+            }
+        }
+        
               
     }
 	
