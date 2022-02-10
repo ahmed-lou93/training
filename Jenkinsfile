@@ -48,7 +48,7 @@ pipeline{
         stage('Package') {
             steps {
                 echo 'Packaging'
-                sh 'mvn package -DskipTests'
+                bat 'mvn package -DskipTests'
                 archiveArtifacts artifacts: 'target/training.war', fingerprint: true
 
             }
