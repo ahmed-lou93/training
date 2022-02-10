@@ -49,7 +49,7 @@ pipeline{
             steps {
                 echo 'Packaging'
                 bat 'mvn package -DskipTests'
-                archiveArtifacts artifacts: 'training.jar', fingerprint: true
+                archiveArtifacts artifacts: '**', fingerprint: true
 
             }
         }
