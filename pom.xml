@@ -11,6 +11,18 @@
 		<jacoco.version>0.8.7</jacoco.version>
 	</properties>
 
+	<distributionManagement>
+		<snapshotRepository>
+			<id>nexus_spring</id>
+			<url>http://localhost:9001/repository/nexus_spring/</url>
+		</snapshotRepository>
+		<repository>
+			<id>nexusdeploymentrepo</id>
+			<url>http://localhost:9001/repository/nexus-spring-release/</url>
+		</repository>
+
+	</distributionManagement>
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
