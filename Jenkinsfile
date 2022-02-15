@@ -51,7 +51,17 @@ pipeline{
                 bat 'mvn package -DskipTests'
                 archiveArtifacts artifacts: '**', fingerprint: true
             }
-        }     
+        }  
+        
+        stage('Deploy'){
+ 
+            steps{
+                nexusPublisher nexusInstanceId: 'localnexus3', nexusRepositoryId: 'nexus_spring', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'C:\\Projects\\Java\\training\\target\\training-0.1.1-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'training', groupId: 'clinic.programming', packaging: 'jar', version: '0.1.1-SNAPSHOT']]]
+            }
+
+ 
+        }
+   
              
     }
 	
