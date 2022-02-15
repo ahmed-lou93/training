@@ -37,14 +37,14 @@ pipeline{
                 jacoco()
             }
         }
-        stage('Sonar') {
-            steps {
-                withSonarQubeEnv('SonarQube') { 
-                 bat ' mvn sonar:sonar'
-                }
+        //stage('Sonar') {
+        //    steps {
+          //      withSonarQubeEnv('SonarQube') { 
+              //   bat ' mvn sonar:sonar'
+            //    }
                 
-            }
-        }
+        //    }
+        //}*/
         stage('Package') {
             steps {
                 echo 'Packaging'
