@@ -56,7 +56,7 @@ pipeline{
         stage('Deploy'){
  
             steps{
-                nexusArtifactUploader artifacts: [[artifactId: 'training', classifier: '', file: 'C:\\Projects\\Java\\training\\target\\training-0.1.1-SNAPSHOT.jar', type: 'jar']], credentialsId: 'nexus_credentials', groupId: 'clinic.programming', nexusUrl: 'localhost:9001/repository/nexus_spring', nexusVersion: 'nexus3', protocol: 'http', repository: 'nexus_spring', version: '0.1.1-SNAPSHOT'
+                nexusArtifactUploader artifacts: [[artifactId: 'training', classifier: '', file: 'C:\\Projects\\Java\\training\\target\\training-0.1.1-SNAPSHOT.jar', type: 'jar']], credentialsId: 'nexus_credentials', groupId: 'clinic.programming', nexusUrl: 'localhost:9001/', nexusVersion: 'nexus3', protocol: 'http', repository: 'nexus_spring', version: '0.1.1-SNAPSHOT'
             }
 
  
