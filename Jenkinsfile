@@ -56,7 +56,7 @@ pipeline{
         stage('Deploy'){
  
             steps{
-                nexusPublisher nexusInstanceId: 'localnexus3', nexusRepositoryId: 'nexus_spring', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'C:\\Projects\\Java\\training\\target\\training-0.1.1-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'training', groupId: 'clinic.programming', packaging: 'jar', version: '0.1.1-SNAPSHOT']]]
+                nexusArtifactUploader artifacts: [[artifactId: 'training', classifier: '', file: 'C:\\Projects\\Java\\training\\target\\training-0.1.1-SNAPSHOT.jar', type: 'jar']], credentialsId: 'nexus_credentials', groupId: 'clinic.programming', nexusUrl: 'http://localhost:9001/repository/nexus_spring/', nexusVersion: 'nexus3', protocol: 'http', repository: 'nexus_spring', version: '0.1.1-SNAPSHOT'
             }
 
  
